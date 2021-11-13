@@ -18,7 +18,7 @@ const CartButton = props => {
     }, 0);
     
     useEffect(() => {
-        if (cartItems.length === 0) {
+        if (cartLenght === 0) {
             return;
         }
         

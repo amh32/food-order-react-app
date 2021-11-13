@@ -10,36 +10,33 @@ const Cart = props => {
     const items = ctx.items;
     const totalPrice = `$${ctx.totalPrice.toFixed(2)}`;
 
-    const addHandler = item => {
+    const addHandler = (item) => {
+        const modifiedItem = {...item, amount: 1};
+        ctx.addItem(modifiedItem);
     }
 
-    const removeHandler = id => {
+    const removeHandler = (id) => {
+        ctx.removeItem(id);
     }
-
-    let estimatedPrice = 0;
-    items.forEach(item => {
-        estimatedPrice += (item.price * item.amount);
-    });
 
     const itemList = items.map(item => {
-        return <li>
-            <CartItem 
+        
+
+        return <CartItem 
             key={item.id}
+            id={item.id}
             name={item.name}
             summary={item.description}
             price={item.price}
             amount={item.amount}
-            onAdd={addHandler}
-            onRemove={removeHandler}
+            onAdd={addHandler.bind(null, item)}
+            onRemove={removeHandler.bind(null, item.id)}
             />
-        </li>
     });
 
     return <Modal className='cart' toggle={toggleCart}>
         <ul className='cart-items'>{itemList}</ul>
-
-        <div className='total'>Estimated Total: {estimatedPrice}</div>
-        <div className='total'>Actual Total: {totalPrice}</div>
+        <div className='total'>Total Price: {totalPrice}</div>
         <div className='actions'>
             <button className='button--alt' onClick={toggleCart}>Back</button>
             <button className='solid-button'>Order</button>

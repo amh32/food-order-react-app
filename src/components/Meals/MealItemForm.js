@@ -10,15 +10,9 @@ const MealItemForm = props => {
 
     let meal = props.meal;
     const id = meal.id;
-    // const [amount, setAmount] = useState(1);
 
     const cartCtx = useContext(CartContext);
     const addToCart = cartCtx.addItem;
-
-
-    // const amountChangeHandler = event => {
-    //     setAmount(event.target.valueAsnumber);
-    // }
 
     const submissionHandler = event => {
         event.preventDefault();

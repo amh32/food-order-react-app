@@ -16,17 +16,11 @@
             "type": "firefox",
             "request": "launch",
             "reAttach": true,
-            "port": 3000,
-            "url": "http://localhost:3000",
-            "preLaunchTask": "Launch Firefox",
+            // "port": 3000,
+            "url": "http://localhost:3000/index.html",
+            // "preLaunchTask": "Launch Firefox",
             "internalConsoleOptions": "openOnSessionStart",
-            "webRoot": "${workspaceFolder}",
-            "pathMappings": [
-                {
-                    "url": "http://localhost:3000",
-                    "path": "${workspaceFolder}"
-                }
-            ]
+            "webRoot": "${workspaceFolder}"
         }
     ]
 }
